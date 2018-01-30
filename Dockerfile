@@ -10,13 +10,10 @@
 #
 # $ docker build --no-cache -t giannetti/mlatechcamp:mostrecent .
 #
-# Run and remove container upon exit:
+# To run:
 #
 # $ docker run --rm -p 80:8787 giannetti/mlatechcamp:mostrecent
 #
-# Run it for real:
-# 
-# $ docker run -d -p 80:8787 giannetti/mlatechcamp:mostrecent
 # -----------------------------------------------------------------------------
 #
 
@@ -33,6 +30,8 @@ RUN R -e 'install.packages(c("rgdal", "ggraph", "RColorBrewer", "igraph", "histo
 #
 # Add script to generate new user accounts.
 #
-ADD https://gist.githubusercontent.com/stephlocke/0036331e7a3338e965149833e92c1360/raw/607fb01602e143671c83216a4c5f1ad2deb10bf6/mkusers.sh /usr/sbin
+ADD https://raw.githubusercontent.com/DataWookie/docker-exegetic/master/users-create-accounts.sh /usr/sbin
+ADD https://github.com/DataWookie/docker-exegetic/blob/master/users-generate-details.sh /usr/sbin
 ADD https://gist.githubusercontent.com/giannetti/c7ecc3aece3eb0cd843c6c3765454fdc/raw/e44814161e6071f55645172e96f85756c147c4b6/users.csv /usr/sbin
-RUN chmod 700 /usr/sbin/mkusers.sh
+RUN chmod 700 /usr/sbin/users-generate-details.sh
+RUN chmod 700 /usr/sbin/users-create-accounts.sh
