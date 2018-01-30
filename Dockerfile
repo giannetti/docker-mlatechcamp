@@ -10,10 +10,13 @@
 #
 # $ docker build --no-cache -t giannetti/mlatechcamp:mostrecent .
 #
-# To run:
+# Run and remove container upon exit:
 #
 # $ docker run --rm -p 80:8787 giannetti/mlatechcamp:mostrecent
 #
+# Run it for real:
+# 
+# $ docker run -d -p 80:8787 giannetti/mlatechcamp:mostrecent
 # -----------------------------------------------------------------------------
 #
 
